@@ -3,6 +3,7 @@
   values:
     prefix: comp-window-damaged-
     count: 6
+<<<<<<< HEAD
 
 - type: localizedDataset
   id: ShieldMessages
@@ -15,3 +16,5 @@
   values:
     prefix: comp-eshield-damaged-
     count: 4
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)

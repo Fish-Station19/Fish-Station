@@ -153,7 +153,11 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         }
         else
         {
+<<<<<<< HEAD
             _battery.ChangeCharge((entity.Owner, battery), entity.Comp.ChargingWattage * frameTime * entity.Comp.ChargingEfficiency);
+=======
+            _battery.SetCharge((entity.Owner, battery), battery.CurrentCharge + entity.Comp.ChargingWattage * frameTime * entity.Comp.ChargingEfficiency);
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
             if (_battery.IsFull((entity.Owner, battery)))
             {
                 if (TryComp<ApcPowerReceiverComponent>(entity.Owner, out var receiver))

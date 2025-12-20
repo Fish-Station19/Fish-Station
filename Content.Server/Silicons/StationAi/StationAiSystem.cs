@@ -2,10 +2,16 @@ using Content.Server.Chat.Systems;
 using Content.Server.Construction;
 using Content.Server.Destructible;
 using Content.Server.Ghost;
+<<<<<<< HEAD
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
 using Content.Server.Power.Components;
+=======
+using Content.Server.Mind;
+using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 using Content.Server.Roles;
 using Content.Server.Spawners.Components;
 using Content.Server.Spawners.EntitySystems;
@@ -22,7 +28,10 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Power;
+<<<<<<< HEAD
 using Content.Shared.Power.EntitySystems;
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 using Content.Shared.Power.Components;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Roles;
@@ -49,10 +58,16 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly RoleSystem _roles = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
+<<<<<<< HEAD
     [Dependency] private readonly ToggleableGhostRoleSystem _ghostrole = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly DestructibleSystem _destructible = default!;
     [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly DestructibleSystem _destructible = default!;
+    [Dependency] private readonly BatterySystem _battery = default!;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly StationSystem _station = default!;
@@ -100,6 +115,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         }
 
         var brain = container.ContainedEntities[0];
+<<<<<<< HEAD
         var hasMind = _mind.TryGetMind(brain, out var mindId, out var mind);
 
         if (hasMind || HasComp<GhostRoleComponent>(brain))
@@ -124,6 +140,16 @@ public sealed class StationAiSystem : SharedStationAiSystem
             }
 
             // Delete the new AI brain if it cannot be inserted into the core
+=======
+
+        if (_mind.TryGetMind(brain, out var mindId, out var mind))
+        {
+            // Found an existing mind to transfer into the AI core
+            var aiBrain = Spawn(_stationAiBrain, Transform(ent.Owner).Coordinates);
+            _roles.MindAddJobRole(mindId, mind, false, _stationAiJob);
+            _mind.TransferTo(mindId, aiBrain);
+
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
             if (!TryComp<StationAiHolderComponent>(ent, out var targetHolder) ||
                 !_slots.TryInsert(ent, targetHolder.Slot, aiBrain, null))
             {
@@ -239,7 +265,10 @@ public sealed class StationAiSystem : SharedStationAiSystem
         UpdateDamagedAccent(entity);
     }
 
+<<<<<<< HEAD
     // TODO: This should just read the current damage and charge when speaking instead of updating the component all the time even if we don't even use it.
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     private void UpdateDamagedAccent(Entity<StationAiCoreComponent> ent)
     {
         if (!TryGetHeld((ent.Owner, ent.Comp), out var held))
@@ -249,7 +278,11 @@ public sealed class StationAiSystem : SharedStationAiSystem
             return;
 
         if (TryComp<BatteryComponent>(ent, out var battery))
+<<<<<<< HEAD
             accent.OverrideChargeLevel = _battery.GetChargeLevel((ent.Owner, battery));
+=======
+            accent.OverrideChargeLevel = battery.CurrentCharge / battery.MaxCharge;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 
         if (TryComp<DamageableComponent>(ent, out var damageable))
             accent.OverrideTotalDamage = damageable.TotalDamage;
@@ -271,7 +304,11 @@ public sealed class StationAiSystem : SharedStationAiSystem
         if (!_proto.TryIndex(_batteryAlert, out var proto))
             return;
 
+<<<<<<< HEAD
         var chargePercent = _battery.GetChargeLevel((ent.Owner, battery));
+=======
+        var chargePercent = battery.CurrentCharge / battery.MaxCharge;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         var chargeLevel = Math.Round(chargePercent * proto.MaxSeverity);
 
         _alerts.ShowAlert(held.Value, _batteryAlert, (short)Math.Clamp(chargeLevel, 0, proto.MaxSeverity));

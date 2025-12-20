@@ -31,7 +31,11 @@ public sealed partial class PowerCellSystem
     [PublicAPI]
     public bool TryGetBatteryFromSlot(
         Entity<PowerCellSlotComponent?> ent,
+<<<<<<< HEAD
         [NotNullWhen(true)] out Entity<BatteryComponent>? battery)
+=======
+        [NotNullWhen(true)] out Entity<PredictedBatteryComponent>? battery)
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     {
         if (!Resolve(ent, ref ent.Comp, false))
         {
@@ -45,7 +49,11 @@ public sealed partial class PowerCellSystem
             return false;
         }
 
+<<<<<<< HEAD
         if (!TryComp<BatteryComponent>(slot.Item, out var batteryComp))
+=======
+        if (!TryComp<PredictedBatteryComponent>(slot.Item, out var batteryComp))
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         {
             battery = null;
             return false;
@@ -57,15 +65,26 @@ public sealed partial class PowerCellSystem
 
     /// <summary>
     /// First tries to get a battery from the entity's power cell slot.
+<<<<<<< HEAD
     /// If that fails check if the entity itself is a battery with <see cref="BatteryComponent"/>.
     /// </summary>
     [PublicAPI]
     public bool TryGetBatteryFromSlotOrEntity(Entity<PowerCellSlotComponent?> ent, [NotNullWhen(true)] out Entity<BatteryComponent>? battery)
+=======
+    /// If that fails check if the entity itself is a battery with <see cref="PredictedBatteryComponent"/>.
+    /// </summary>
+    [PublicAPI]
+    public bool TryGetBatteryFromSlotOrEntity(Entity<PowerCellSlotComponent?> ent, [NotNullWhen(true)] out Entity<PredictedBatteryComponent>? battery)
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     {
         if (TryGetBatteryFromSlot(ent, out battery))
             return true;
 
+<<<<<<< HEAD
         if (TryComp<BatteryComponent>(ent, out var batteryComp))
+=======
+        if (TryComp<PredictedBatteryComponent>(ent, out var batteryComp))
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         {
             battery = (ent.Owner, batteryComp);
             return true;
@@ -76,6 +95,7 @@ public sealed partial class PowerCellSystem
     }
 
     /// <summary>
+<<<<<<< HEAD
     /// First checks if the entity itself is a battery with <see cref="BatteryComponent"/>.
     /// If that fails it will try to get a battery from the entity's power cell slot instead.
     /// </summary>
@@ -83,6 +103,15 @@ public sealed partial class PowerCellSystem
     public bool TryGetBatteryFromEntityOrSlot(Entity<PowerCellSlotComponent?> ent, [NotNullWhen(true)] out Entity<BatteryComponent>? battery)
     {
         if (TryComp<BatteryComponent>(ent, out var batteryComp))
+=======
+    /// First checks if the entity itself is a battery with <see cref="PredictedBatteryComponent"/>.
+    /// If that fails it will try to get a battery from the entity's power cell slot instead.
+    /// </summary>
+    [PublicAPI]
+    public bool TryGetBatteryFromEntityOrSlot(Entity<PowerCellSlotComponent?> ent, [NotNullWhen(true)] out Entity<PredictedBatteryComponent>? battery)
+    {
+        if (TryComp<PredictedBatteryComponent>(ent, out var batteryComp))
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         {
             battery = (ent.Owner, batteryComp);
             return true;

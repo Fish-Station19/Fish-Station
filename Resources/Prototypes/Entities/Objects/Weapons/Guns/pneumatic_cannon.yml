@@ -129,10 +129,17 @@
   - type: BatteryAmmoProvider
     proto: FoodPieBananaCream
     fireCost: 30
+<<<<<<< HEAD
   - type: Battery
     maxCharge: 90
     startingCharge: 90
   - type: BatterySelfRecharger
+=======
+  - type: PredictedBattery
+    maxCharge: 90
+    startingCharge: 90
+  - type: PredictedBatterySelfRecharger
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     autoRechargeRate: 1
   - type: AmmoCounter
   - type: Item

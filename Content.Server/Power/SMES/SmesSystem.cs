@@ -2,7 +2,10 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
+<<<<<<< HEAD
 using Content.Shared.Power.EntitySystems;
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 using Content.Shared.Rounding;
 using Content.Shared.SMES;
 using JetBrains.Annotations;
@@ -15,7 +18,10 @@ internal sealed class SmesSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 
     public override void Initialize()
     {
@@ -63,8 +69,12 @@ internal sealed class SmesSystem : EntitySystem
         if (!Resolve(uid, ref battery, false))
             return 0;
 
+<<<<<<< HEAD
         var currentCharge = _battery.GetCharge((uid, battery));
         return ContentHelpers.RoundToLevels(currentCharge, battery.MaxCharge, 6);
+=======
+        return ContentHelpers.RoundToLevels(battery.CurrentCharge, battery.MaxCharge, 6);
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     }
 
     private ChargeState CalcChargeState(EntityUid uid, PowerNetworkBatteryComponent? netBattery = null)

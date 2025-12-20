@@ -58,6 +58,7 @@
   objectType: Item
 
 - type: construction
+<<<<<<< HEAD
   id: BoxCardboardSmall
   name: construction-recipe-box-cardboard-small
   graph: BoxCardboardSmall
@@ -67,6 +68,8 @@
   objectType: Item
 
 - type: construction
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   id: ToteBase
   name: construction-recipe-box-tote
   graph: ToteBase

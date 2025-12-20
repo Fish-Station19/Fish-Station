@@ -11,7 +11,11 @@ namespace Content.Server.Radio.EntitySystems;
 public sealed class JammerSystem : SharedJammerSystem
 {
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+    [Dependency] private readonly PredictedBatterySystem _battery = default!;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedDeviceNetworkJammerSystem _jammer = default!;
 
@@ -25,7 +29,11 @@ public sealed class JammerSystem : SharedJammerSystem
     }
 
     // TODO: Very important: Make this charge rate based instead of updating every single tick
+<<<<<<< HEAD
     // See BatteryComponent
+=======
+    // See PredictedBatteryComponent
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<ActiveRadioJammerComponent, RadioJammerComponent>();

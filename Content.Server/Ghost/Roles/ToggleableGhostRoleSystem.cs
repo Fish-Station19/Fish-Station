@@ -49,6 +49,7 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
 
         UpdateAppearance(uid, ToggleableGhostRoleStatus.Searching);
 
+<<<<<<< HEAD
         ActivateGhostRole((uid, component));
     }
 
@@ -66,6 +67,17 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
         ghostRole.RoleRules = Loc.GetString(ent.Comp.RoleRules);
         ghostRole.JobProto = ent.Comp.JobProto;
         ghostRole.MindRoles = ent.Comp.MindRoles;
+=======
+        var ghostRole = EnsureComp<GhostRoleComponent>(uid);
+        EnsureComp<GhostTakeoverAvailableComponent>(uid);
+
+        //GhostRoleComponent inherits custom settings from the ToggleableGhostRoleComponent
+        ghostRole.RoleName = Loc.GetString(component.RoleName);
+        ghostRole.RoleDescription = Loc.GetString(component.RoleDescription);
+        ghostRole.RoleRules = Loc.GetString(component.RoleRules);
+        ghostRole.JobProto = component.JobProto;
+        ghostRole.MindRoles = component.MindRoles;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     }
 
     private void OnExamined(EntityUid uid, ToggleableGhostRoleComponent component, ExaminedEvent args)

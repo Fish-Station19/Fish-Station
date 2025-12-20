@@ -8,7 +8,10 @@ using Content.Shared.Pinpointer;
 using Content.Shared.Station.Components;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
+<<<<<<< HEAD
 using Content.Shared.Power.EntitySystems;
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
@@ -23,7 +26,10 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 {
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly SharedMapSystem _sharedMapSystem = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 
     // Note: this data does not need to be saved
     private Dictionary<EntityUid, Dictionary<Vector2i, PowerCableChunk>> _gridPowerCableChunks = new();
@@ -512,7 +518,11 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
         if (effectiveMax == 0)
             effectiveMax = 1;
 
+<<<<<<< HEAD
         return _battery.GetCharge((uid, battery)) / effectiveMax;
+=======
+        return battery.CurrentCharge / effectiveMax;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     }
 
     private void GetSourcesForNode(EntityUid uid, Node node, out List<PowerMonitoringConsoleEntry> sources)

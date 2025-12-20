@@ -15,7 +15,11 @@ public sealed partial class PowerCellSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+    [Dependency] private readonly PredictedBatterySystem _battery = default!;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
@@ -27,7 +31,11 @@ public sealed partial class PowerCellSystem : EntitySystem
         SubscribeLocalEvent<PowerCellSlotComponent, EntInsertedIntoContainerMessage>(OnCellSlotInserted);
         SubscribeLocalEvent<PowerCellSlotComponent, EntRemovedFromContainerMessage>(OnCellSlotRemoved);
         SubscribeLocalEvent<PowerCellSlotComponent, ExaminedEvent>(OnCellSlotExamined);
+<<<<<<< HEAD
         SubscribeLocalEvent<PowerCellSlotComponent, BatteryStateChangedEvent>(OnCellSlotStateChanged);
+=======
+        SubscribeLocalEvent<PowerCellSlotComponent, PredictedBatteryStateChangedEvent>(OnCellSlotStateChanged);
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 
         SubscribeLocalEvent<PowerCellComponent, ExaminedEvent>(OnCellExamined);
 
@@ -65,7 +73,11 @@ public sealed partial class PowerCellSystem : EntitySystem
         _battery.RefreshChargeRate(args.Entity);
 
         // Only update the visuals if we actually use them.
+<<<<<<< HEAD
         if (!HasComp<BatteryVisualsComponent>(ent))
+=======
+        if (!HasComp<PredictedBatteryVisualsComponent>(ent))
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
             return;
 
         // Set the data to that of the power cell
@@ -94,7 +106,11 @@ public sealed partial class PowerCellSystem : EntitySystem
         _battery.RefreshChargeRate(args.Entity);
 
         // Only update the visuals if we actually use them.
+<<<<<<< HEAD
         if (!HasComp<BatteryVisualsComponent>(ent))
+=======
+        if (!HasComp<PredictedBatteryVisualsComponent>(ent))
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
             return;
 
         // Set the appearance to empty.
@@ -103,7 +119,11 @@ public sealed partial class PowerCellSystem : EntitySystem
     }
 
 
+<<<<<<< HEAD
     private void OnCellSlotStateChanged(Entity<PowerCellSlotComponent> ent, ref BatteryStateChangedEvent args)
+=======
+    private void OnCellSlotStateChanged(Entity<PowerCellSlotComponent> ent, ref PredictedBatteryStateChangedEvent args)
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     {
         if (args.NewState != BatteryState.Empty)
             return;
@@ -123,11 +143,19 @@ public sealed partial class PowerCellSystem : EntitySystem
 
     private void OnCellExamined(Entity<PowerCellComponent> ent, ref ExaminedEvent args)
     {
+<<<<<<< HEAD
         if (TryComp<BatteryComponent>(ent, out var battery))
             OnBatteryExamined((ent.Owner, battery), ref args);
     }
 
     private void OnBatteryExamined(Entity<BatteryComponent> ent, ref ExaminedEvent args)
+=======
+        if (TryComp<PredictedBatteryComponent>(ent, out var battery))
+            OnBatteryExamined((ent.Owner, battery), ref args);
+    }
+
+    private void OnBatteryExamined(Entity<PredictedBatteryComponent> ent, ref ExaminedEvent args)
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     {
         var chargePercent = _battery.GetChargeLevel(ent.AsNullable()) * 100;
         args.PushMarkup(Loc.GetString("power-cell-component-examine-details", ("currentCharge", $"{chargePercent:F0}")));

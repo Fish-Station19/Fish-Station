@@ -4,6 +4,10 @@ using System.Numerics;
 using Content.Server.Cargo.Components;
 using Content.Server.Doors.Systems;
 using Content.Server.Hands.Systems;
+<<<<<<< HEAD
+=======
+using Content.Server.Power.EntitySystems;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 using Content.Server.Stack;
 using Content.Server.Station.Systems;
 using Content.Server.Weapons.Ranged.Systems;
@@ -50,7 +54,12 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly AdminTestArenaSystem _adminTestArenaSystem = default!;
     [Dependency] private readonly StationJobsSystem _stationJobsSystem = default!;
     [Dependency] private readonly JointSystem _jointSystem = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _batterySystem = default!;
+=======
+    [Dependency] private readonly BatterySystem _batterySystem = default!;
+    [Dependency] private readonly PredictedBatterySystem _predictedBatterySystem = default!;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly GunSystem _gun = default!;
 
@@ -159,6 +168,60 @@ public sealed partial class AdminVerbSystem
             args.Verbs.Add(makeVulnerable);
         }
 
+<<<<<<< HEAD
+=======
+        if (TryComp<PredictedBatteryComponent>(args.Target, out var pBattery))
+        {
+            Verb refillBattery = new()
+            {
+                Text = Loc.GetString("admin-verbs-refill-battery"),
+                Category = VerbCategory.Tricks,
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/fill_battery.png")),
+                Act = () =>
+                {
+                    _predictedBatterySystem.SetCharge((args.Target, pBattery), pBattery.MaxCharge);
+                },
+                Impact = LogImpact.Medium,
+                Message = Loc.GetString("admin-trick-refill-battery-description"),
+                Priority = (int)TricksVerbPriorities.RefillBattery,
+            };
+            args.Verbs.Add(refillBattery);
+
+            Verb drainBattery = new()
+            {
+                Text = Loc.GetString("admin-verbs-drain-battery"),
+                Category = VerbCategory.Tricks,
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/drain_battery.png")),
+                Act = () =>
+                {
+                    _predictedBatterySystem.SetCharge((args.Target, pBattery), 0);
+                },
+                Impact = LogImpact.Medium,
+                Priority = (int)TricksVerbPriorities.DrainBattery,
+            };
+            args.Verbs.Add(drainBattery);
+
+            Verb infiniteBattery = new()
+            {
+                Text = Loc.GetString("admin-verbs-infinite-battery"),
+                Category = VerbCategory.Tricks,
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/infinite_battery.png")),
+                Act = () =>
+                {
+                    var recharger = EnsureComp<PredictedBatterySelfRechargerComponent>(args.Target);
+                    recharger.AutoRechargeRate = pBattery.MaxCharge; // Instant refill.
+                    recharger.AutoRechargePauseTime = TimeSpan.Zero; // No delay.
+                    Dirty(args.Target, recharger);
+                    _predictedBatterySystem.RefreshChargeRate((args.Target, pBattery));
+                },
+                Impact = LogImpact.Medium,
+                Message = Loc.GetString("admin-trick-infinite-battery-object-description"),
+                Priority = (int)TricksVerbPriorities.InfiniteBattery,
+            };
+            args.Verbs.Add(infiniteBattery);
+        }
+
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         if (TryComp<BatteryComponent>(args.Target, out var battery))
         {
             Verb refillBattery = new()
@@ -201,8 +264,11 @@ public sealed partial class AdminVerbSystem
                     var recharger = EnsureComp<BatterySelfRechargerComponent>(args.Target);
                     recharger.AutoRechargeRate = battery.MaxCharge; // Instant refill.
                     recharger.AutoRechargePauseTime = TimeSpan.Zero; // No delay.
+<<<<<<< HEAD
                     Dirty(args.Target, recharger);
                     _batterySystem.RefreshChargeRate((args.Target, battery));
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-infinite-battery-object-description"),

@@ -1559,6 +1559,7 @@ Entries:
   id: 189
   time: '2025-12-18T19:33:08.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41900
+<<<<<<< HEAD
 - author: ScarKy0
   changes:
   - message: Station AI Radial actions are now logged. Search for "Station AI Radial"
@@ -1567,5 +1568,7 @@ Entries:
   id: 190
   time: '2025-12-20T18:23:43.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/41911
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 Name: Admin
 Order: 3

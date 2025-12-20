@@ -1,4 +1,31 @@
 ﻿Entries:
+<<<<<<< HEAD
+=======
+- author: aada
+  changes:
+  - message: Lipolicide now continues to poison at 0 hunger.
+    type: Fix
+  - message: Tricordrazine now also heals at exactly 50 damage instead of needing
+      to be below 50. Similar thresholds on other reagents tweaked the same.
+    type: Tweak
+  id: 8819
+  time: '2025-07-30T06:44:46.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36289
+- author: Disp-Dev
+  changes:
+  - message: A new recipe has been added, moth-edible cotton cakes.
+    type: Add
+  id: 8820
+  time: '2025-07-30T22:51:21.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39222
+- author: spanky-spanky
+  changes:
+  - message: The wizard now spawns in a den instead of a shuttle.
+    type: Tweak
+  id: 8821
+  time: '2025-07-31T04:08:05.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37701
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 - author: perryprog
   changes:
   - message: Fixed board game areas sometimes overlapping with those of other board
@@ -3890,6 +3917,7 @@
   id: 9318
   time: '2025-12-18T21:22:45.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/32931
+<<<<<<< HEAD
 - author: Hitlinemoss
   changes:
   - message: Small cardboard boxes have been added (2x2 instead of 3x3), and can be
@@ -3922,3 +3950,5 @@
   id: 9321
   time: '2025-12-20T14:34:40.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40607
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)

@@ -42,7 +42,11 @@
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 360
     startingCharge: 360
   - type: UseDelay
