@@ -3,7 +3,10 @@ using Content.Server.Power.Components;
 using Content.Shared.Database;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
+<<<<<<< HEAD
 using Content.Shared.Power.EntitySystems;
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Power.EntitySystems;
@@ -25,7 +28,10 @@ public sealed class BatteryInterfaceSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _battery = null!;
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 
     public override void Initialize()
     {
@@ -50,7 +56,11 @@ public sealed class BatteryInterfaceSystem : EntitySystem
         var netBattery = Comp<PowerNetworkBatteryComponent>(ent);
         netBattery.CanCharge = args.On;
 
+<<<<<<< HEAD
         _adminLog.Add(LogType.Action, $"{ToPrettyString(args.Actor):actor} set input breaker to {args.On} on {ToPrettyString(ent):target}");
+=======
+        _adminLog.Add(LogType.Action,$"{ToPrettyString(args.Actor):actor} set input breaker to {args.On} on {ToPrettyString(ent):target}");
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     }
 
     private void HandleSetOutputBreaker(Entity<BatteryInterfaceComponent> ent, ref BatterySetOutputBreakerMessage args)
@@ -58,7 +68,11 @@ public sealed class BatteryInterfaceSystem : EntitySystem
         var netBattery = Comp<PowerNetworkBatteryComponent>(ent);
         netBattery.CanDischarge = args.On;
 
+<<<<<<< HEAD
         _adminLog.Add(LogType.Action, $"{ToPrettyString(args.Actor):actor} set output breaker to {args.On} on {ToPrettyString(ent):target}");
+=======
+        _adminLog.Add(LogType.Action,$"{ToPrettyString(args.Actor):actor} set output breaker to {args.On} on {ToPrettyString(ent):target}");
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     }
 
     private void HandleSetChargeRate(Entity<BatteryInterfaceComponent> ent, ref BatterySetChargeRateMessage args)
@@ -92,14 +106,21 @@ public sealed class BatteryInterfaceSystem : EntitySystem
         if (!_uiSystem.IsUiOpen(uid, BatteryUiKey.Key))
             return;
 
+<<<<<<< HEAD
         var currentCharge = _battery.GetCharge((uid, battery));
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         _uiSystem.SetUiState(
             uid,
             BatteryUiKey.Key,
             new BatteryBuiState
             {
                 Capacity = battery.MaxCharge,
+<<<<<<< HEAD
                 Charge = currentCharge,
+=======
+                Charge = battery.CurrentCharge,
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
                 CanCharge = netBattery.CanCharge,
                 CanDischarge = netBattery.CanDischarge,
                 CurrentReceiving = netBattery.CurrentReceiving,

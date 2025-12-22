@@ -9,7 +9,11 @@ namespace Content.Server.Ninja.Systems;
 
 public sealed class ItemCreatorSystem : SharedItemCreatorSystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+    [Dependency] private readonly PredictedBatterySystem _battery = default!;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 

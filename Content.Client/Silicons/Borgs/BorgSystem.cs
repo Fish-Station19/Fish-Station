@@ -18,7 +18,11 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+    [Dependency] private readonly PredictedBatterySystem _battery = default!;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;

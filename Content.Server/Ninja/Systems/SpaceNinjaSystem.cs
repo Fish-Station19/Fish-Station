@@ -24,7 +24,11 @@ namespace Content.Server.Ninja.Systems;
 public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+    [Dependency] private readonly PredictedBatterySystem _battery = default!;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -91,7 +95,11 @@ public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
     /// <summary>
     /// Get the battery component in a ninja's suit, if it's worn.
     /// </summary>
+<<<<<<< HEAD
     public bool GetNinjaBattery(EntityUid user, [NotNullWhen(true)] out EntityUid? batteryUid, [NotNullWhen(true)] out BatteryComponent? batteryComp)
+=======
+    public bool GetNinjaBattery(EntityUid user, [NotNullWhen(true)] out EntityUid? batteryUid, [NotNullWhen(true)] out PredictedBatteryComponent? batteryComp)
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     {
         if (TryComp<SpaceNinjaComponent>(user, out var ninja)
             && ninja.Suit != null

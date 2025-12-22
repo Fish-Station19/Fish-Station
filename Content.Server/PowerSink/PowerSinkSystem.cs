@@ -68,7 +68,11 @@ namespace Content.Server.PowerSink
 
                 _battery.ChangeCharge((entity, battery), networkLoad.NetworkLoad.ReceivingPower * frameTime);
 
+<<<<<<< HEAD
                 var currentBatteryThreshold = _battery.GetChargeLevel((entity, battery));
+=======
+                var currentBatteryThreshold = battery.CurrentCharge / battery.MaxCharge;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 
                 // Check for warning message threshold
                 if (!component.SentImminentExplosionWarningMessage &&
@@ -90,7 +94,11 @@ namespace Content.Server.PowerSink
                 }
 
                 // Check for explosion
+<<<<<<< HEAD
                 if (!_battery.IsFull((entity, battery)))
+=======
+                if (battery.CurrentCharge < battery.MaxCharge)
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
                     continue;
 
                 if (component.ExplosionTime == null)

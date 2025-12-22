@@ -18,7 +18,11 @@ public sealed class RiggableSystem : EntitySystem
 {
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+    [Dependency] private readonly PredictedBatterySystem _predictedBattery = default!;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 
     public override void Initialize()
     {
@@ -27,6 +31,10 @@ public sealed class RiggableSystem : EntitySystem
         SubscribeLocalEvent<RiggableComponent, BeingMicrowavedEvent>(OnMicrowaved);
         SubscribeLocalEvent<RiggableComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
         SubscribeLocalEvent<RiggableComponent, ChargeChangedEvent>(OnChargeChanged);
+<<<<<<< HEAD
+=======
+        SubscribeLocalEvent<RiggableComponent, PredictedBatteryChargeChangedEvent>(OnChargeChanged);
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     }
 
     private void OnRejuvenate(Entity<RiggableComponent> entity, ref RejuvenateEvent args)
@@ -38,7 +46,20 @@ public sealed class RiggableSystem : EntitySystem
     {
         if (TryComp<BatteryComponent>(entity, out var batteryComponent))
         {
+<<<<<<< HEAD
             var charge = _battery.GetCharge((entity, batteryComponent));
+=======
+            if (batteryComponent.CurrentCharge == 0f)
+                return;
+
+            Explode(entity, batteryComponent.CurrentCharge);
+            args.Handled = true;
+        }
+
+        if (TryComp<PredictedBatteryComponent>(entity, out var predictedBatteryComponent))
+        {
+            var charge = _predictedBattery.GetCharge((entity, predictedBatteryComponent));
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
             if (charge == 0f)
                 return;
 
@@ -70,11 +91,30 @@ public sealed class RiggableSystem : EntitySystem
         QueueDel(uid);
     }
 
+<<<<<<< HEAD
+=======
+    // non-predicted batteries
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     private void OnChargeChanged(Entity<RiggableComponent> ent, ref ChargeChangedEvent args)
     {
         if (!ent.Comp.IsRigged)
             return;
 
+<<<<<<< HEAD
+=======
+        if (args.Charge == 0f)
+            return; // No charge to cause an explosion.
+
+        Explode(ent, args.Charge);
+    }
+
+    // predicted batteries
+    private void OnChargeChanged(Entity<RiggableComponent> ent, ref PredictedBatteryChargeChangedEvent args)
+    {
+        if (!ent.Comp.IsRigged)
+            return;
+
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         if (args.CurrentCharge == 0f)
             return; // No charge to cause an explosion.
 

@@ -1,4 +1,5 @@
 - type: entity
+<<<<<<< HEAD
   parent: BoxBase
   id: BoxCardboard
   name: cardboard box
@@ -32,6 +33,21 @@
   - type: PhysicalComposition # Half of the "regular" cardboard box
     materialComposition:
       Cardboard: 50
+=======
+  name: cardboard box
+  parent: BoxBase
+  id: BoxCardboard
+  description: A cardboard box for storing things.
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,2
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   - type: Sprite
     state: box
   - type: Tag
@@ -182,6 +198,7 @@
       - state: headset
 
 - type: entity
+<<<<<<< HEAD
   parent: BoxCardboardSmall
   id: BoxStamps
   name: stamp box
@@ -193,6 +210,8 @@
       - state: stamp
 
 - type: entity
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   name: meson box
   parent: BoxCardboard
   id: BoxMesonScanners

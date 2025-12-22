@@ -13,7 +13,11 @@ namespace Content.Server.Speech.EntitySystems;
 public sealed class DamagedSiliconAccentSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+    [Dependency] private readonly PredictedBatterySystem _battery = default!;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
 
