@@ -73,11 +73,14 @@
     sprite: Structures/Power/power.rsi
     state: provider
   - type: Battery
+<<<<<<< HEAD
     # Very important:
     # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
     # This can not be done by changing the charge rate as the power supply ramps up over time.
     # This disables prediction for this battery.
     netsync: false
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   - type: NodeContainer
     nodes:
       input:
@@ -109,11 +112,14 @@
     sprite: Structures/Power/power.rsi
     state: provider
   - type: Battery
+<<<<<<< HEAD
     # Very important:
     # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
     # This can not be done by changing the charge rate as the power supply ramps up over time.
     # This disables prediction for this battery.
     netsync: false
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   - type: NodeContainer
     nodes:
       input:

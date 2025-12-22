@@ -18,7 +18,11 @@ namespace Content.Server.Stunnable.Systems
     {
         [Dependency] private readonly RiggableSystem _riggableSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
+<<<<<<< HEAD
         [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+        [Dependency] private readonly PredictedBatterySystem _battery = default!;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
 
         public override void Initialize()
@@ -28,13 +32,21 @@ namespace Content.Server.Stunnable.Systems
             SubscribeLocalEvent<StunbatonComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<StunbatonComponent, SolutionContainerChangedEvent>(OnSolutionChange);
             SubscribeLocalEvent<StunbatonComponent, StaminaDamageOnHitAttemptEvent>(OnStaminaHitAttempt);
+<<<<<<< HEAD
             SubscribeLocalEvent<StunbatonComponent, ChargeChangedEvent>(OnChargeChanged);
+=======
+            SubscribeLocalEvent<StunbatonComponent, PredictedBatteryChargeChangedEvent>(OnChargeChanged);
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         }
 
         private void OnStaminaHitAttempt(Entity<StunbatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
         {
             if (!_itemToggle.IsActivated(entity.Owner) ||
+<<<<<<< HEAD
             !TryComp<BatteryComponent>(entity.Owner, out var battery) || !_battery.TryUseCharge((entity.Owner, battery), entity.Comp.EnergyPerUse))
+=======
+            !TryComp<PredictedBatteryComponent>(entity.Owner, out var battery) || !_battery.TryUseCharge((entity.Owner, battery), entity.Comp.EnergyPerUse))
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
             {
                 args.Cancelled = true;
             }
@@ -47,7 +59,11 @@ namespace Content.Server.Stunnable.Systems
             : Loc.GetString("comp-stunbaton-examined-off");
             args.PushMarkup(onMsg);
 
+<<<<<<< HEAD
             if (TryComp<BatteryComponent>(entity.Owner, out var battery))
+=======
+            if (TryComp<PredictedBatteryComponent>(entity.Owner, out var battery))
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
             {
                 var count = _battery.GetRemainingUses((entity.Owner, battery), entity.Comp.EnergyPerUse);
                 args.PushMarkup(Loc.GetString("melee-battery-examine", ("color", "yellow"), ("count", count)));
@@ -58,7 +74,11 @@ namespace Content.Server.Stunnable.Systems
         {
             base.TryTurnOn(entity, ref args);
 
+<<<<<<< HEAD
             if (!TryComp<BatteryComponent>(entity, out var battery) || _battery.GetCharge((entity, battery)) < entity.Comp.EnergyPerUse)
+=======
+            if (!TryComp<PredictedBatteryComponent>(entity, out var battery) || _battery.GetCharge((entity, battery)) < entity.Comp.EnergyPerUse)
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
             {
                 args.Cancelled = true;
                 if (args.User != null)
@@ -79,7 +99,11 @@ namespace Content.Server.Stunnable.Systems
         {
             // Explode if baton is activated and rigged.
             if (!TryComp<RiggableComponent>(entity, out var riggable) ||
+<<<<<<< HEAD
                 !TryComp<BatteryComponent>(entity, out var battery))
+=======
+                !TryComp<PredictedBatteryComponent>(entity, out var battery))
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
                 return;
 
             if (_itemToggle.IsActivated(entity.Owner) && riggable.IsRigged)
@@ -96,9 +120,15 @@ namespace Content.Server.Stunnable.Systems
             });
         }
 
+<<<<<<< HEAD
         private void OnChargeChanged(Entity<StunbatonComponent> entity, ref ChargeChangedEvent args)
         {
             if (TryComp<BatteryComponent>(entity.Owner, out var battery) &&
+=======
+        private void OnChargeChanged(Entity<StunbatonComponent> entity, ref PredictedBatteryChargeChangedEvent args)
+        {
+            if (TryComp<PredictedBatteryComponent>(entity.Owner, out var battery) &&
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
                 _battery.GetCharge((entity.Owner, battery)) < entity.Comp.EnergyPerUse)
             {
                 _itemToggle.TryDeactivate(entity.Owner, predicted: false);

@@ -32,8 +32,11 @@
           Heat: 1
     - type: Damageable
       damageContainer: Shield
+<<<<<<< HEAD
     - type: ExaminableDamage
       messages: ShieldMessages
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     - type: Destructible
       thresholds:
         - trigger:
@@ -62,6 +65,7 @@
     - type: StaticPrice
       price: 100
 
+<<<<<<< HEAD
 - type: entity
   name: base repairable shield
   parent: BaseShield
@@ -79,11 +83,17 @@
     doAfterDelay: 5
     allowSelfRepair: false
 
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 #Security Shields
 
 - type: entity
   name: riot shield
+<<<<<<< HEAD
   parent: [ BaseRepairableShield, BaseSecurityContraband ]
+=======
+  parent: [ BaseShield, BaseSecurityContraband ]
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   id: RiotShield
   description: A large tower shield. Good for controlling crowds.
   components:
@@ -104,7 +114,11 @@
 
 - type: entity
   name: laser shield
+<<<<<<< HEAD
   parent: [ BaseRepairableShield, BaseSecurityContraband ]
+=======
+  parent: [ BaseShield, BaseSecurityContraband ]
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   id: RiotLaserShield
   description: A shield built for withstanding lasers, but not much else.
   components:
@@ -124,7 +138,11 @@
 
 - type: entity
   name: ballistic shield
+<<<<<<< HEAD
   parent: [ BaseRepairableShield, BaseSecurityContraband ]
+=======
+  parent: [ BaseShield, BaseSecurityContraband ]
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   id: RiotBulletShield
   description: A shield built for protecting against ballistics, but not much else.
   components:
@@ -253,7 +271,11 @@
 
 - type: entity
   name: makeshift shield
+<<<<<<< HEAD
   parent: BaseRepairableShield
+=======
+  parent: BaseShield
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
@@ -362,7 +384,11 @@
 
 - type: entity
   name: clockwork shield
+<<<<<<< HEAD
   parent: BaseRepairableShield
+=======
+  parent: BaseShield
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   id: ClockworkShield
   description: Ratvar oyrffrf lbh jvgu uvf cebgrpgvba.
   components:
@@ -511,8 +537,11 @@
     - type: Appearance
     - type: Damageable
       damageContainer: Shield
+<<<<<<< HEAD
     - type: ExaminableDamage
       messages: EnergyShieldMessages
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     - type: Destructible
       thresholds:
         - trigger:
@@ -554,7 +583,11 @@
 
 - type: entity
   name: telescopic shield
+<<<<<<< HEAD
   parent: BaseRepairableShield
+=======
+  parent: BaseShield
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   id: TelescopicShield
   description: An advanced riot shield made of lightweight materials that collapses for easy storage.
   components:

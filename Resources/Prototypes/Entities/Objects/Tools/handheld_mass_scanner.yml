@@ -19,7 +19,11 @@
     maxRange: 256
     followEntity: true
   - type: Appearance
+<<<<<<< HEAD
   - type: BatteryVisuals
+=======
+  - type: PredictedBatteryVisuals
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   - type: GenericVisualizer
     visuals:
       enum.BatteryVisuals.State:

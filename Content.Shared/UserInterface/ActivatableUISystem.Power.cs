@@ -16,7 +16,11 @@ public sealed partial class ActivatableUISystem
         SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, ItemToggledEvent>(OnToggled);
         SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, BoundUIOpenedEvent>(OnBatteryOpened);
         SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, BoundUIClosedEvent>(OnBatteryClosed);
+<<<<<<< HEAD
         SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, BatteryStateChangedEvent>(OnBatteryStateChanged);
+=======
+        SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, PredictedBatteryStateChangedEvent>(OnBatteryStateChanged);
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, ActivatableUIOpenAttemptEvent>(OnBatteryOpenAttempt);
     }
 
@@ -57,7 +61,11 @@ public sealed partial class ActivatableUISystem
             _toggle.TryDeactivate(uid);
     }
 
+<<<<<<< HEAD
     private void OnBatteryStateChanged(Entity<ActivatableUIRequiresPowerCellComponent> ent, ref BatteryStateChangedEvent args)
+=======
+    private void OnBatteryStateChanged(Entity<ActivatableUIRequiresPowerCellComponent> ent, ref PredictedBatteryStateChangedEvent args)
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     {
         // Deactivate when empty.
         if (args.NewState != BatteryState.Empty)

@@ -1,5 +1,9 @@
 using Content.Server.Ninja.Events;
 using Content.Server.Power.Components;
+<<<<<<< HEAD
+=======
+using Content.Server.Power.EntitySystems;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Ninja.Components;
@@ -16,7 +20,12 @@ namespace Content.Server.Ninja.Systems;
 /// </summary>
 public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly PredictedBatterySystem _predictedBattery = default!;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -78,20 +87,33 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
     protected override bool TryDrainPower(Entity<BatteryDrainerComponent> ent, EntityUid target)
     {
         var (uid, comp) = ent;
+<<<<<<< HEAD
         if (comp.BatteryUid == null || !TryComp<BatteryComponent>(comp.BatteryUid.Value, out var battery))
+=======
+        if (comp.BatteryUid == null || !TryComp<PredictedBatteryComponent>(comp.BatteryUid.Value, out var battery))
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
             return false;
 
         if (!TryComp<BatteryComponent>(target, out var targetBattery) || !TryComp<PowerNetworkBatteryComponent>(target, out var pnb))
             return false;
 
+<<<<<<< HEAD
         var available = _battery.GetCharge((target, targetBattery));
         if (MathHelper.CloseToPercent(available, 0))
+=======
+        if (MathHelper.CloseToPercent(targetBattery.CurrentCharge, 0))
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         {
             _popup.PopupEntity(Loc.GetString("battery-drainer-empty", ("battery", target)), uid, uid, PopupType.Medium);
             return false;
         }
 
+<<<<<<< HEAD
         var required = battery.MaxCharge - _battery.GetCharge((comp.BatteryUid.Value, battery));
+=======
+        var available = targetBattery.CurrentCharge;
+        var required = battery.MaxCharge - _predictedBattery.GetCharge((comp.BatteryUid.Value, battery));
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         // higher tier storages can charge more
         var maxDrained = pnb.MaxSupply * comp.DrainTime;
         var input = Math.Min(Math.Min(available, required / comp.DrainEfficiency), maxDrained);
@@ -99,13 +121,23 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
             return false;
 
         var output = input * comp.DrainEfficiency;
+<<<<<<< HEAD
         _battery.ChangeCharge((comp.BatteryUid.Value, battery), output);
+=======
+        // PowerCells use PredictedBatteryComponent
+        // SMES, substations and APCs use BatteryComponent
+        _predictedBattery.ChangeCharge((comp.BatteryUid.Value, battery), output);
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         // TODO: create effect message or something
         Spawn("EffectSparks", Transform(target).Coordinates);
         _audio.PlayPvs(comp.SparkSound, target);
         _popup.PopupEntity(Loc.GetString("battery-drainer-success", ("battery", target)), uid, uid);
 
         // repeat the doafter until battery is full
+<<<<<<< HEAD
         return !_battery.IsFull((comp.BatteryUid.Value, battery));
+=======
+        return !_predictedBattery.IsFull((comp.BatteryUid.Value, battery));
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     }
 }

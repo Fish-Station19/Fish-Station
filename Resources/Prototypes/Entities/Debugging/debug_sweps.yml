@@ -18,7 +18,11 @@
   - type: BatteryAmmoProvider
     proto: DebugLaser
     fireCost: 1
+<<<<<<< HEAD
   - type: BatterySelfRecharger
+=======
+  - type: PredictedBatterySelfRecharger
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     autoRechargeRate: 1000
 
 - type: entity

@@ -5,7 +5,11 @@
   components:
   - type: Item
     storedRotation: -90
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     pricePerJoule: 0.15
   - type: PowerCell
   - type: Explosive
@@ -32,7 +36,11 @@
       - PowerCell
   - type: Riggable
   - type: Appearance
+<<<<<<< HEAD
   - type: BatteryVisuals
+=======
+  - type: PredictedBatteryVisuals
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   - type: GenericVisualizer
     visuals:
       enum.BatteryVisuals.State:
@@ -50,7 +58,11 @@
   - type: Sprite
     layers:
     - state: potato
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 70
     startingCharge: 70
   - type: Tag
@@ -74,7 +86,11 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 360
     startingCharge: 360
   - type: Tag
@@ -94,7 +110,11 @@
         state: o2
         shader: unshaded
         visible: false
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 360
     startingCharge: 0
 
@@ -104,7 +124,11 @@
   name: small-capacity nuclear power cell
   description: A self rechargeable power cell, designed for fast recharge rate at the expense of capacity.
   components:
+<<<<<<< HEAD
   - type: BatterySelfRecharger
+=======
+  - type: PredictedBatterySelfRecharger
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     autoRechargeRate: 36 # 10 seconds to recharge
     autoRechargePauseTime: 30
 
@@ -122,7 +146,11 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 720
     startingCharge: 720
 
@@ -139,7 +167,11 @@
         state: o2
         shader: unshaded
         visible: false
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 720
     startingCharge: 0
 
@@ -157,7 +189,11 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 1080
     startingCharge: 1080
 
@@ -174,7 +210,11 @@
         state: o2
         shader: unshaded
         visible: false
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 1080
     startingCharge: 0
 
@@ -192,7 +232,11 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 1800
     startingCharge: 1800
 
@@ -209,7 +253,11 @@
         state: o2
         shader: unshaded
         visible: false
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 1800
     startingCharge: 0
 
@@ -227,10 +275,17 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
+<<<<<<< HEAD
   - type: Battery
     maxCharge: 720
     startingCharge: 720
   - type: BatterySelfRecharger
+=======
+  - type: PredictedBattery
+    maxCharge: 720
+    startingCharge: 720
+  - type: PredictedBatterySelfRecharger
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     autoRechargeRate: 12 # takes 1 minute to charge itself back to full
 
 - type: entity
@@ -246,7 +301,11 @@
       state: o2
       shader: unshaded
       visible: false
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     startingCharge: 0
 
 - type: entity
@@ -262,10 +321,17 @@
       - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
         state: o2
         shader: unshaded
+<<<<<<< HEAD
     - type: Battery
       maxCharge: 1200
       startingCharge: 1200
     - type: BatterySelfRecharger
+=======
+    - type: PredictedBattery
+      maxCharge: 1200
+      startingCharge: 1200
+    - type: PredictedBatterySelfRecharger
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
       autoRechargeRate: 40
 
 # Power cage (big heavy power cell for big devices)
@@ -309,7 +375,11 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 1400
     startingCharge: 1400
 
@@ -327,7 +397,11 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 2700
     startingCharge: 2700
 
@@ -345,7 +419,11 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 6200
     startingCharge: 6200
 
@@ -363,7 +441,11 @@
       state: o2
       shader: unshaded
       visible: false
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     maxCharge: 1400
     startingCharge: 0
 
@@ -381,7 +463,11 @@
       state: o2
       shader: unshaded
       visible: false
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     startingCharge: 0
 
 - type: entity
@@ -398,5 +484,9 @@
       state: o2
       shader: unshaded
       visible: false
+<<<<<<< HEAD
   - type: Battery
+=======
+  - type: PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     startingCharge: 0

@@ -519,6 +519,10 @@
     whitelist:
       components:
       - Battery
+<<<<<<< HEAD
+=======
+      - PredictedBattery
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
 
 - type: cargoBounty
   id: BountyLaserGun

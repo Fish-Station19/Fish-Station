@@ -7,12 +7,17 @@
     - to: boxcardboard
       steps:
       - material: Cardboard
+<<<<<<< HEAD
         amount: 2
+=======
+        amount: 1
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
         doAfter: 4
   - node: boxcardboard
     entity: BoxCardboard
 
 - type: constructionGraph
+<<<<<<< HEAD
   id: BoxCardboardSmall
   start: start
   graph:
@@ -27,6 +32,8 @@
     entity: BoxCardboardSmall
 
 - type: constructionGraph
+=======
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
   id: ToteBase
   start: start
   graph:

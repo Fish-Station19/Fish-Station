@@ -13,7 +13,11 @@ namespace Content.Shared.Power.EntitySystems;
 
 public sealed class ChargerSystem : EntitySystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly SharedBatterySystem _battery = default!;
+=======
+    [Dependency] private readonly PredictedBatterySystem _battery = default!;
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -35,7 +39,11 @@ public sealed class ChargerSystem : EntitySystem
         SubscribeLocalEvent<ChargerComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<ChargerComponent, EmpDisabledRemovedEvent>(OnEmpRemoved);
         SubscribeLocalEvent<InsideChargerComponent, RefreshChargeRateEvent>(OnRefreshChargeRate);
+<<<<<<< HEAD
         SubscribeLocalEvent<InsideChargerComponent, BatteryStateChangedEvent>(OnStatusChanged);
+=======
+        SubscribeLocalEvent<InsideChargerComponent, PredictedBatteryStateChangedEvent>(OnStatusChanged);
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     }
 
     private void OnStartup(Entity<ChargerComponent> ent, ref ComponentStartup args)
@@ -176,7 +184,11 @@ public sealed class ChargerSystem : EntitySystem
 
         args.NewChargeRate += chargerComp.ChargeRate;
     }
+<<<<<<< HEAD
     private void OnStatusChanged(Entity<InsideChargerComponent> ent, ref BatteryStateChangedEvent args)
+=======
+    private void OnStatusChanged(Entity<InsideChargerComponent> ent, ref PredictedBatteryStateChangedEvent args)
+>>>>>>> 0f45621bc5 (Wizden: fresh start — single commit of current tree)
     {
         // If the battery is full update the visuals and power draw of the charger.
 
