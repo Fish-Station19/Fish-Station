@@ -1,0 +1,14 @@
+* Invite Button
+	- Adds note to inviter's account
+	- Text File that tracks all invites
+* Make ship guns unable to hit their parent and anything on their parent
+* Make ship guns aimable
+* Expand atmos gasses
+	- Deuterium
+	- Make ammonia doe something
+	- Gas that puts N2 breathers to sleep
+	- Meth Gas
+* Engi Power Adjustment
+	- power sink (money or materials)
+	- modular upgrades
+* Port stuff from other forks
